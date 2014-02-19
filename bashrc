@@ -1,5 +1,8 @@
 # .bashrc
 
+alias vim /usr/local/bin/vim
+
+
 # Source global definitions
 if [ -f /etc/bashrc ]; then
 	. /etc/bashrc
