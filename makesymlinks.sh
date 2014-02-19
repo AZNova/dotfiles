@@ -8,7 +8,8 @@
 
 dir=~/dotfiles                    # dotfiles directory
 olddir=~/dotfiles_old             # old dotfiles backup directory
-files="bashrc vimrc vim zshrc oh-my-zsh private scrotwm.conf Xresources"    # list of files/folders to symlink in homedir
+files="bashrc vimrc vim rpmmacros"    # list of files/folders to symlink in homedir
+#files="bashrc vimrc vim zshrc oh-my-zsh private scrotwm.conf Xresources"    # list of files/folders to symlink in homedir
 
 ##########
 
@@ -55,6 +56,20 @@ else
     fi
 fi
 }
+
+install_rpm-build () {
+if [ ! -e ~/rpmbuild/SOURCES ]; then
+    sudo yum install rpm-build redhat-rpm-config
+    mkdir -p ~/rpmbuild/{BUILD,RPMS,SOURCES,SPECS,SRPMS}
+    if [ ! -e ~/dotfiles/rpmmacros ]; then
+        echo '%_topdir %(echo $HOME)/rpmbuild' > ~/dotfiles/rpmmacros
+    fi
+    if [ ! -e ~/rpmmacros ]; then
+        ln -s ~/dotfiles/rpmmacros ~/.rpmmacros
+    fi
+fi
+
+install_rpm-build
 
 #install_zsh - I don't think so...
 
