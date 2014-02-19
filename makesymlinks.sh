@@ -56,4 +56,5 @@ else
 fi
 }
 
-install_zsh
+#install_zsh - I don't think so...
+
