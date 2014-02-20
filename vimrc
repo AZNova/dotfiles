@@ -23,7 +23,7 @@ set clipboard=unnamed
 " Mouse and backspace
 " set mouse=a  " on OSX press ALT and click
 " set bs=2     " make backspace behave like normal again
-
+set backspace=indent,eol,start
 
 " Rebind <Leader> key
 " I like to have it here becuase it is easier to reach than the default and
@@ -84,7 +84,8 @@ au InsertLeave * match ExtraWhitespace /\s\+$/
 " mkdir -p ~/.vim/colors && cd ~/.vim/colors
 " wget -O wombat256mod.vim http://www.vim.org/scripts/download_script.php?src_id=13400
 set t_Co=256
-color wombat256mod
+"color wombat256mod
+colorscheme ir_black
 
 
 " Enable syntax highlighting
@@ -95,11 +96,11 @@ syntax on
 
 
 " Showing line numbers and length
-set number  " show line numbers
+"set number  " show line numbers
 set tw=79   " width of document (used by gd)
 set nowrap  " don't automatically wrap on load
 set fo-=t   " don't automatically wrap text when typing
-if has('colorcolumn')
+if exists('+colorcolumn')
   set colorcolumn=80 "not available until ViM 7.3
   highlight ColorColumn ctermbg=233
 endif
