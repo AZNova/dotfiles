@@ -1,1 +1,2 @@
 %_topdir %(echo $HOME)/rpmbuild
+%_tpmpath %(echo "$HOME")/rpms/tpm
