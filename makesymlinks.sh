@@ -68,6 +68,7 @@ if [ ! -e ~/rpmbuild/SOURCES ]; then
         ln -s ~/dotfiles/rpmmacros ~/.rpmmacros
     fi
 fi
+}
 
 install_rpm-build
 
