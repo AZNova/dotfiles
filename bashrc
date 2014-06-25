@@ -1,6 +1,6 @@
 # .bashrc
 
-alias vim=/usr/local/bin/vim
+# alias vim=/usr/local/bin/vim
 
 
 # Source global definitions
