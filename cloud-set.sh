@@ -1,11 +1,22 @@
 #!/bin/bash
 
+
+if [ "$EUID" -ne 0 ]
+  then echo "Please run as root"
+  exit
+fi
+
+if [ -z "$1" ]
+  then echo "Pass FQDN and try again, i.e p3nlhcsapp998.prod.phx3.secureserver.net"
+  exit
+fi
+
 FQDN=$1
 
 mkdir /etc/yum.repos.d/bak
 mv /etc/yum.repos.d/*.repo /etc/yum.repos.d/bak
 #vim /etc/yum.repos.d/gd-spacewalk-v6.repo
-cp ~/dotfiles/gd-spacewalk-v6.repo /etc/yum.repos.d/gd-spacewalk-v6.repo
+cp /home/sfeltner/dotfiles/gd-spacewalk-v6.repo /etc/yum.repos.d/gd-spacewalk-v6.repo
 
 #hostname p3nlhcsapp998.prod.phx3.secureserver.net
 hostname $FQDN
@@ -24,6 +35,6 @@ cp /etc/puppet/puppet.conf.orig /etc/puppet/puppet.conf
 #vim /etc/puppet/puppet.conf
 printf "    server = puppetvm.ddns.lxpro.com\n    environment = site_hosting" >> /etc/puppet/puppet.conf
 
-puppet agent --test --pluginsync        <= to create the SSL cert on the puppetmaster
+puppet agent --test --pluginsync
 
-echo "No go to the puppet master and 'puppet cert sign' the client cert and re-run puppet agent --test --pluginsync" 
+echo "Now go to the puppet master and 'puppet cert sign' the client cert and re-run puppet agent --test --pluginsync" 
