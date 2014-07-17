@@ -33,7 +33,7 @@ yum -y install gd-puppet27
 
 cp /etc/puppet/puppet.conf.orig /etc/puppet/puppet.conf
 #vim /etc/puppet/puppet.conf
-printf "    server = puppetvm.ddns.lxpro.com\n    environment = site_hosting" >> /etc/puppet/puppet.conf
+printf "    server = puppetvm.cloud.dev.phx3.gdg\n    environment = site_hosting" >> /etc/puppet/puppet.conf
 
 puppet agent --test --pluginsync
 
