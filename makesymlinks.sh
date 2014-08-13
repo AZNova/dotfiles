@@ -8,8 +8,7 @@
 
 dir=~/dotfiles                    # dotfiles directory
 olddir=~/dotfiles_old             # old dotfiles backup directory
-files="bashrc vimrc vim rpmmacros git-completion.bash gitk screenrc"    # list of files/folders to symlink in homedir
-#files="bashrc vimrc vim zshrc oh-my-zsh private scrotwm.conf Xresources"    # list of files/folders to symlink in homedir
+files="bashrc vimrc vim rpmmacros git-completion.bash gitk screenrc tmux.config"    # list of files/folders to symlink in homedir
 
 ##########
 
@@ -30,6 +29,10 @@ for file in $files; do
     echo "Creating symlink to $file in home directory."
     ln -s $dir/$file ~/.$file
 done
+
+# set up symlink for wemux
+echo "Creating symlink to wemux.conf in /usr/local/etc directory."
+ln -s $dir/wemux.conf /usr/local/etc/wemux.conf
 
 install_zsh () {
 # Test to see if zshell is installed.  If it is:
