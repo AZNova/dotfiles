@@ -53,7 +53,7 @@ PS1="$F_RED[\u@\h \W]$F_YELLOW \$(parse_git_branch)$F_WHITE\$ "
 # PS1="[\u@\h \W]\\$ "
 
 
-source .git-completion.bash
+source ~/.git-completion.bash
 
 
 #
