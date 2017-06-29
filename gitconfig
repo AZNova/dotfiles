@@ -1,0 +1,9 @@
+[user]
+	name = Steven Feltner
+	email = sfeltner@godaddy.com
+[diff]
+	tool = vimdiff
+[difftool]
+	prompt = false
+[alias]
+	d = difftool
