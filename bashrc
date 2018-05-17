@@ -2,6 +2,16 @@
 
 # alias vim=/usr/local/bin/vim
 
+# List NATO phonetic alphabet
+# Type 'nato' in your shell to get the International Radiotelephony Spelling
+# Alphabet displayed on your screen.
+function nato() {
+  natostring="Alpha Bravo Charlie Delta Echo Foxtrot Golf Hotel India Juliett Kilo Lima Mike November Oscar Papa Quebec Romeo Sierra Tango Uniform Victor Whiskey X-ray Yankee Zulu"
+  clear
+  for letter in ${natostring} ; do
+    printf "%-5s %s\n" ${letter:0:1} ${letter}
+  done
+}
 
 # Source global definitions
 if [ -f /etc/bashrc ]; then
