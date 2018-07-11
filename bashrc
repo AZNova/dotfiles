@@ -116,4 +116,16 @@ elif ! agent_has_keys; then
     ssh-add
 fi
 
+hgrep() {
+  grep -rIE "$1" --include=*.h *
+}
+
+ccgrep() {
+  grep -rIE "$1" --include=*.cc *
+}
+
+cchgrep() {
+  grep -rIE "$1" --include=*.{cc,h} *
+}
+
 unset env
